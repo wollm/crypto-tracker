@@ -19,10 +19,14 @@ function setExchangeRate(price, label){
 }
 
 // Function to handle "View Details" button click
-function showDetails(cryptoId) {
+function logDetails(cryptoId) {
   // Save the most recently viewed crypto ID in localStorage
   localStorage.setItem("lastViewedCrypto", cryptoId);
   console.log("set item");
+}
+
+function showDetails(cryptoId){
+  window.location.href = `details.html?cryptoId=${cryptoId}`;
 }
 
 // Utility function to fetch and display crypto details
@@ -58,7 +62,7 @@ async function fetchCryptoDetails() {
       document.querySelector('h1').textContent = `${data.name} (${data.symbol.toUpperCase()})`;
       document.querySelector('.hero-section p').innerHTML = data.description.en.split('.')[0];
 
-      showDetails(cryptoId);
+      logDetails(cryptoId);
 
       // Prepare HTML for the details
       const detailsHTML = `
@@ -123,7 +127,7 @@ async function fetchTrendingCryptos() {
                       <div class="price">$${crypto.item.data.price.toFixed(5)}</div>
                   </div>
                   <div class="card-footer text-center">
-                    <button class="btn bg-dark text-white" onclick="showDetails('${crypto.item.id}')">View Details</button>
+                    <button onClick="showDetails('${crypto.item.id}')" class="btn bg-dark text-white">View Details</button>
                 </div>
               </div>
           `;
