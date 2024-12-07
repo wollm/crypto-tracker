@@ -10,13 +10,13 @@ async function fetchCryptoData() {
         }
 
         const response = await fetch(
-            `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily`,
-            {
+            `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily`, {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                }
-            }
+                    'x-cg-demo-api-key': 'CG-eQBhoMmasXLVKssJmmxeZ3A7'
+                },
+          }
         );
 
         if (!response.ok) {

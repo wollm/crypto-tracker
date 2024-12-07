@@ -38,7 +38,13 @@ async function fetchCryptoDetails() {
       }
 
       // Fetch data from CoinGecko API
-      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${cryptoId}`);
+      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${cryptoId}`, {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            'x-cg-demo-api-key': 'CG-eQBhoMmasXLVKssJmmxeZ3A7'
+        },
+  });
       const data = await response.json();
 
       // Extract current price
