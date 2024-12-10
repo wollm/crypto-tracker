@@ -4,7 +4,7 @@ let currentSort = { column: 0, direction: 'asc' };
 // Fetch cryptocurrency data from CoinGecko API
 async function fetchCryptoData(marketValue) {
     try {
-        const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=50', {
+        const response = await fetch('https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=50', {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -165,7 +165,7 @@ function updateSortIcons(activeColumn, direction) {
 // Fetch crypto market data from CoinGecko API
 async function fetchMarketData() {
     try {
-        const response = await fetch('https://api.coingecko.com/api/v3/global', {
+        const response = await fetch('https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/global', {
             method: 'GET',
             headers: {
                 accept: 'application/json',

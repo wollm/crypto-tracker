@@ -10,7 +10,7 @@ async function fetchCryptoData() {
         }
 
         const response = await fetch(
-            `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily`, {
+            `https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=365&interval=daily`, {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',

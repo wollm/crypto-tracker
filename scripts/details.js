@@ -42,7 +42,7 @@ async function fetchCryptoDetails() {
       }
 
       // Fetch data from CoinGecko API
-      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${cryptoId}`, {
+      const response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/coins/${cryptoId}`, {
         method: 'GET',
         headers: {
             accept: 'application/json',
@@ -67,7 +67,7 @@ async function fetchCryptoDetails() {
       // Prepare HTML for the details
       const detailsHTML = `
           <div class="col-md-8">
-              <a href="https://www.coingecko.com/en/coins/${data.id}" target="_blank">
+              <a href="https://cors-anywhere.herokuapp.com/https://www.coingecko.com/en/coins/${data.id}" target="_blank">
                 <img src="${data.image.large}" alt="${data.name}" class="img-fluid mb-3 mx-auto d-block">
               </a>
               <p><strong>Symbol:</strong> ${data.symbol.toUpperCase()}</p>
@@ -98,7 +98,7 @@ async function fetchCryptoDetails() {
 
 async function fetchTrendingCryptos() {
   try {
-      const response = await fetch('https://api.coingecko.com/api/v3/search/trending', {
+      const response = await fetch('https://cors-anywhere.herokuapp.com/https://api.coingecko.com/api/v3/search/trending', {
           method: 'GET',
           headers: {
               accept: 'application/json',
